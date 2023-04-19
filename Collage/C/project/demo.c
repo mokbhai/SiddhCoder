@@ -20,7 +20,8 @@ void delete_record(Record records[], int *num_records);
 
 int main() {
     Record records[MAX_RECORDS];
-    int num_records = 0;
+    // int num_records = 0;
+    int num_records = EOF;
 
     while (1) {
         printf("1. Add record\n");
