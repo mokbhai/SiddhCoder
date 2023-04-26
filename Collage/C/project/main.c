@@ -32,7 +32,8 @@ void updateDefinition(char termName[], FILE *file) {
         if (strcmp(term.name, termName) == 0) {
             printf("Current definition: %s\n", term.definition);
             printf("Enter new definition: ");
-            scanf("%s", term.definition);
+            getchar();
+            gets(term.definition);
             fseek(file, -strlen(term.definition)-2, SEEK_CUR); // move file pointer back to start of current line
             fprintf(file, "%s,%s,%s\n", term.name, term.definition, term.subfield);
             printf("Definition updated successfully.\n");
@@ -110,7 +111,8 @@ int main()
                 printf("Enter term name: ");
                 scanf("%s", term.name);
                 printf("Enter definition: ");
-                scanf("%s", term.definition);
+                getchar();
+                gets( term.definition);
                 printf("Enter subfield: ");
                 scanf("%s", term.subfield);
                 addRecord(term, file);
