@@ -31,6 +31,9 @@
 //     s = "CSE101";
 //     printf("%s", strcpy(s1, s));
 // }
+// strncpy
+// strcat
+// strncat
 
 // void d1strcmp()
 // {
