@@ -1,8 +1,0 @@
-#include <stdlib.h>
-    used to convert string of digits into integer and floating point value and vica-versa
-
-(1) atof --> convert str to lf (double)
-(2) atoi --> str to int
-(3) atol --> str to longg int
-(4) itoa --> int to str
-    egs of all in c3

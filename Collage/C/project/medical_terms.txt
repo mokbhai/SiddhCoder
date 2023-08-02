@@ -1,7 +1,0 @@
-Aneurysm,bulging of a blood vessel wall,heart
-Cancer,abnormal cell growth,cell
-Diabetes,high blood sugar,heart
-Hypertension,high blood pressure,heart
-Stroke,loss of brain function due to interruption of blood supply,brain
-asthama,breathing problem,2
-asthma,breahing problem,3
