@@ -39,6 +39,22 @@
     4. Short: decreases the size of the data type.
     5. Double: stores floating-point numbers with more precision than float.
 
+## 2. Non Premitive Data Types
+
+###    a. Linear
+    Sequential
+    Tyoes:
+        Lists -> Single, Double, Circular Linked List
+        Arrays
+        Stacks
+        Queus
+
+###    b. Non Linear
+    Random
+    Types:
+        Trees
+        Graphs
+
 ## 2. Derived Data Type
 
 ## 3. User Defined Data Types
