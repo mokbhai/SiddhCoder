@@ -23,6 +23,8 @@ del %1.exe
 REM Optionally, pause execution to see the output before closing the window, Pause with custom msg
 pause Press any key to exit...
 
+exit /b
+
 REM Ask the user if they want to delete the compiled executable "%1.exe"
 :choice
 set /p "delete_choice=Do you want to delete the compiled executable '%1.exe'? (y/n): "
