@@ -1,0 +1,33 @@
+/* General Styles */
+body {
+  background-image: url("https://img.freepik.com/free-vector/digital-technology-polygon-connection-background_1035-17976.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais");
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+/* Form Input Styles */
+.form-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.form-checkbox {
+  margin-bottom: 10px;
+}
+
+/* Error Message Styles */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}

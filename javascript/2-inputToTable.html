@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Dynamic Table</h2>
+
+    <form id="dataForm">
+      <label for="dataInput">Enter First name:</label>
+      <input type="text" id="firstname" required />
+      <label for="dataInput">Enter Last name:</label>
+      <input type="text" id="lastname" required />
+      <button type="button" onclick="addData()">Add to Table</button>
+    </form>
+
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table content will be added dynamically here -->
+      </tbody>
+    </table>
+
+    <script>
+      function addData() {
+        // Get input value
+        var firstname = document.getElementById("firstname").value;
+        var lastname = document.getElementById("lastname").value;
+
+        // Check if input is not empty
+        if (firstname.trim() !== "" && lastname.trim() !== "") {
+          // Get table body reference
+          var tableBody = document
+            .getElementById("dataTable")
+            .getElementsByTagName("tbody")[0];
+
+          // Insert a new row
+          var newRow = tableBody.insertRow(tableBody.rows.length);
+
+          // Insert a cell in the row
+          var cellFirstName = newRow.insertCell(0);
+          var cellLastName = newRow.insertCell(1);
+
+          // Append text nodes to the cells
+          var newTextFirstName = document.createTextNode(firstname);
+          var newTextLastName = document.createTextNode(lastname);
+
+          cellFirstName.appendChild(newTextFirstName);
+          cellLastName.appendChild(newTextLastName);
+
+          // Clear the input field
+          document.getElementById("firstname").value = "";
+          document.getElementById("lastname").value = "";
+        } else {
+          alert("Please enter data before adding to the table.");
+        }
+      }
+    </script>
+  </body>
+</html>
