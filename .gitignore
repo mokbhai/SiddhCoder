@@ -22,3 +22,5 @@
 **yarn-debug.log*
 **yarn-error.log*
 .DS_Store
+**prettierrc.json
+**package-lock.json
