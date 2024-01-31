@@ -32,6 +32,8 @@ cd "$target_dir" || exit
 # Run npm install
 npm install
 
+rm -rf node_modules/@babel/plugin-proposal-private-property-in-object
+
 npm start
 
 # echo "Project setup completed successfully."
