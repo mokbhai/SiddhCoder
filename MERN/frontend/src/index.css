@@ -1,0 +1,119 @@
+/* google font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+
+/* layout */
+:root {
+  --primary: #4caf50; /* Change primary color to green */
+  --error: #ff5252; /* Change error color to red */
+}
+body {
+  background: #222; /* Change background color to dark gray */
+  color: #eee; /* Change text color to light gray */
+  margin: 0;
+  font-family: "Poppins";
+}
+header {
+  background: #333; /* Change header background color to darker gray */
+}
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #eee; /* Change link color to light gray */
+  text-decoration: none;
+}
+.pages {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* homepage */
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+
+.workout-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333; /* Change workout details background color to darker gray */
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1); /* Change box shadow color to light gray */
+}
+
+.workout-details .details {
+  flex: 1;
+}
+
+.workout-details .delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.workout-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #ddd; /* Change text color to lighter gray */
+}
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #444; /* Change button background color to darker gray */
+  padding: 6px;
+  border-radius: 50%;
+  color: #eee; /* Change button text color to light gray */
+}
+
+/* new workout form */
+label,
+input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #555; /* Change input border color to darker gray */
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #444; /* Change input background color to darker gray */
+  color: #eee; /* Change input text color to light gray */
+}
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+div.error {
+  padding: 10px;
+  background: #ff5252; /* Change error background color to red */
+  color: #eee; /* Change error text color to light gray */
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid #ff5252; /* Change error input border color to red */
+}
