@@ -39,6 +39,20 @@ workoutController.createWorkout = async (req, res) => {
   }
 };
 
+// Create multiple new workouts
+workoutController.createWorkouts = async (req, res) => {
+  const workouts = req.body;
+  try {
+    for (const workout of workouts) {
+      const { title, load, reps } = workout;
+      await Workout.create({ title, load, reps });
+    }
+    res.status(201).json({ message: "Workouts created successfully" });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 // Delete a workout by ID
 workoutController.deleteWorkoutById = async (req, res) => {
   const { id } = req.params;
@@ -48,7 +62,7 @@ workoutController.deleteWorkoutById = async (req, res) => {
     if (!workout) {
       return res.status(404).json({ message: "Workout not found" });
     }
-    res.status(200).json({ message: "Workout deleted successfully" });
+    res.status(200).json(workout);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

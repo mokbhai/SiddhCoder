@@ -33,6 +33,8 @@ const Home = () => {
 
     if (response.ok) {
       // Refresh workout list after deletion
+      const data = await response.json();
+      dispatch({ type: "DELETE_WORKOUT", payload: data });
     } else {
       console.error("Failed to delete workout");
     }

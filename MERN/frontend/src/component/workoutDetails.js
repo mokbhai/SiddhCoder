@@ -1,4 +1,5 @@
 import React from "react";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const WorkoutDetails = ({ workout, onDelete }) => {
   const handleDelete = () => {
@@ -19,7 +20,11 @@ const WorkoutDetails = ({ workout, onDelete }) => {
           <strong>Reps: </strong>
           {workout.reps}
         </p>
-        <p>{workout.createdAt}</p>
+        <p>
+          {formatDistanceToNow(new Date(workout.createdAt), {
+            addSuffix: true,
+          })}
+        </p>
       </div>
       <button className="delete-button" onClick={handleDelete}>
         <img
