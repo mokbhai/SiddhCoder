@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const workoutsRoutes = require("./routes/workouts");
+const userRoute = require("./routes/userRoutes");
 
 //#endregion
 
@@ -53,6 +54,7 @@ mongoose
 //#region routes
 
 app.use("/api/workouts", workoutsRoutes);
+app.use("/api/user", userRoute);
 
 //#endregion
 
