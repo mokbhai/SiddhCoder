@@ -169,3 +169,30 @@ Welcome to Dockerizing your NestJs application! This guide will walk you through
   ```
 
 Now, your NestJs application will automatically reflect live changes as you develop, making the development process smoother and more efficient.
+
+## Push to hub
+
+```bash
+# Tag the Docker image
+docker tag my_image username/repository:tag
+
+# Log in to Docker Hub
+docker login
+
+# Push the Docker image to Docker Hub
+docker push username/repository:tag
+```
+
+- example
+
+  ```bash
+  docker tag 99966fb0630c mokshitjain18/docker-nestjs:v0.1
+
+  docker push mokshitjain18/docker-nestjs:v0.1
+  ```
+
+## pull
+
+```bash
+docker pull mokshitjain18/docker-nestjs:v0.1
+```
