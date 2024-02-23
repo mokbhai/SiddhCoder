@@ -1,5 +1,7 @@
 # Docker with NestJs
 
+- refrence video - https://youtu.be/a0B6MdC75z0
+
 Welcome to Dockerizing your NestJs application! This guide will walk you through the steps to containerize your NestJs project and run it seamlessly using Docker.
 
 ## Step 1: Setting up NestJs
