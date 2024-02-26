@@ -1,0 +1,12 @@
+services:
+  nestjs_api:
+    build:
+      context: .
+      dockerfile: ./test/Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - PORT=3000
+      - NODE_ENV=Testing
+    volumes:
+      - ./src:/usr/src/app/src
