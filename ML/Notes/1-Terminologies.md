@@ -20,3 +20,11 @@ graph TD;
     ML&DL-->Un-Supervised Learning;
     ML&DL-->Reinforsed Learning Learning;
 ```
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
