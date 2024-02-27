@@ -24,7 +24,7 @@ graph TD;
 ```mermaid
 graph TD;
     ML-->Supervised_Learning;
-    ML-->Supervised_Learning;
+    ML-->UN_Supervised_Learning;
     B-->D;
     C-->D;
 ```
