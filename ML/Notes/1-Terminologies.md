@@ -23,8 +23,8 @@ graph TD;
 
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
+    ML-->Supervised_Learning;
+    ML-->Supervised_Learning;
     B-->D;
     C-->D;
 ```
