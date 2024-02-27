@@ -20,3 +20,5 @@ reg.fit(X, Y)
 # predict
 print(reg.predict([[5.5]]))
 ```
+
+[Practicle Implimentation of Linear Regression](../Practicles/1-LinearRegression/1-LinearRegression.ipynb)
