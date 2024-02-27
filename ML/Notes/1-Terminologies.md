@@ -16,14 +16,7 @@
 
 ```mermaid
 graph TD;
-    ML&DL-->Supervised Learning;
-    ML&DL-->Un-Supervised Learning;
-    ML&DL-->Reinforsed Learning Learning;
-```
-
-```mermaid
-graph TD;
-    ML-->Supervised_Learning;
-    ML-->UN_Supervised_Learning;
-    ML-->Reinforsed Learning Learning;
+    ML&DL-->Supervised_Learning;
+    ML&DL-->UN_Supervised_Learning;
+    ML&DL-->Reinforsed_Learning_Learning;
 ```
