@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: ./test/Dockerfile
+    image: testing-docker-nestjs
     ports:
       - '3000:3000'
     environment:
