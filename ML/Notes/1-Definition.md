@@ -5,6 +5,8 @@
 
 # Machine Learning
 
+![alt text](ML.png)
+
 - Machine learning is a subset of AI.
 - It involves using statistical techniques to analyze, visualize, predict, and forecast data.
 
