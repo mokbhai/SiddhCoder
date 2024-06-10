@@ -4,8 +4,9 @@ public class hello {
     public static void main(String[] args) {  
         Scanner scanner = new Scanner(System.in);
 
-        int size = scanner.nextInt();
+        // int size = scanner.nextInt();
         // int[] numbers = takeInput(scanner, size);
+        // String str = scanner.nextLine();
 
         // printArray(numbers);
 
@@ -20,7 +21,14 @@ public class hello {
 
         // System.out.println(sumTillNRecursion(size));
         // System.out.println(factorialOfNRecursion(size));
-        System.out.println(fibonacciNumberRecursion(size));
+        // System.out.println(fibonacciNumberRecursion(size));
+        // System.out.println(powerOfARecursion(10, size));
+        // System.out.println(powerOfARecursionInLogN(10, size));
+        // System.out.println(checkPalindrom(str, 0, str.length() - 1));
+        // printNumberTillNRecursion(size);
+        
+
+        scanner.close();
     }
 
     public static int[] takeInput(Scanner scanner, int size) {
@@ -130,6 +138,49 @@ public class hello {
         } else {
             return fibonacciNumberRecursion(n - 1) + fibonacciNumberRecursion(n - 2);
         }
+    }
+
+    public static void printNumberTillNRecursion(int n) {
+        if (n == 0) {
+            return;
+        }
+        printNumberTillNRecursion(n-1);
+        System.out.println(n);
+    }
+
+    public static long powerOfARecursion(long a, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n == 1) {
+            return a;
+        }
+
+        return powerOfARecursion(a, n-1) * a;
+    }
+
+    public static long powerOfARecursionInLogN(long a, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n == 1) {
+            return a;
+        }
+        if (n%2 != 0) {
+            return powerOfARecursion(a, n-1) * a;
+        } else {
+            return powerOfARecursion(a, n/2) * powerOfARecursion(a, n/2);
+        }
+    }
+
+    public static boolean checkPalindrom(String str, int s, int e) {
+        if (str.charAt(s) != str.charAt(e)) {
+            return false;
+        }
+        if (s >= e) {
+            return true;
+        }
+        return checkPalindrom(str, s+1, e-1);
     }
 
 }
