@@ -1,5 +1,8 @@
 import java.util.*;
 
+
+// Basics of Recurssion.
+
 public class hello {  
     public static void main(String[] args) {  
         Scanner scanner = new Scanner(System.in);
@@ -26,7 +29,6 @@ public class hello {
         // System.out.println(powerOfARecursionInLogN(10, size));
         // System.out.println(checkPalindrom(str, 0, str.length() - 1));
         // printNumberTillNRecursion(size);
-        
 
         scanner.close();
     }
