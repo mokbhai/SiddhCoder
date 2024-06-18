@@ -10,7 +10,7 @@ public class LinkedList {
         }
     }
 
-    public static Node head;
+    public Node head;
     public static Node tail;
     public static int size;
 
@@ -75,6 +75,13 @@ public class LinkedList {
 
     public int size() {
         return size;
+    }
+
+    public boolean empty() {
+        if (size() == 0) {
+            return true;
+        }
+        return false;
     }
 
     public void print() {
