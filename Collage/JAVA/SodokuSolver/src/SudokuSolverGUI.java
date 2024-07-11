@@ -124,7 +124,7 @@ public class SudokuSolverGUI extends JFrame {
         });
         buttonPanel.add(stopButton);
 
-        JComboBox<String> speedSelector = new JComboBox<>(new String[]{"Slow", "Fast", "Superfast"});
+        JComboBox<String> speedSelector = new JComboBox<>(new String[]{"Slow", "Fast", "Superfast", "Flash"});
         speedSelector.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -138,6 +138,9 @@ public class SudokuSolverGUI extends JFrame {
                         break;
                     case "Superfast":
                         delay = 10;
+                        break;
+                    case "Flash":
+                        delay = 0;
                         break;
                 }
             }
