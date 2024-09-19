@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+  </head>
+  <body>
+    <h1>Payment Details</h1>
+    <p id="payment-info"></p>
+
+    <button id="success-btn">Success</button>
+    <button id="failed-btn">Failed</button>
+
+    <script>
+      // Payment details embedded in the page
+      const amount = <%= amount %>;
+      const id = <%= id %>;
+
+      // Display payment details
+      document.getElementById('payment-info').innerText = `Payment Amount: ${amount}, Payment ID: ${id}`;
+
+      // Handle button clicks
+      document.getElementById('success-btn').addEventListener('click', () => {
+          fetch('/payment-success', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ amount, id })
+          }).then(response => response.json())
+            .then(data => alert(data.message));
+      });
+
+      document.getElementById('failed-btn').addEventListener('click', () => {
+          fetch('/payment-failed', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ amount, id })
+          }).then(response => response.json())
+            .then(data => alert(data.message));
+      });
+    </script>
+  </body>
+</html>
