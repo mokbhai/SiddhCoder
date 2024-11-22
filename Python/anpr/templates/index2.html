@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANPR Image Capture</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+
+      #preview {
+        max-width: 100%;
+        margin-top: 10px;
+      }
+
+      button {
+        padding: 10px 15px;
+        margin-top: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Capture License Plate</h1>
+      <input type="file" accept="image/*" id="imageInput" capture="camera" />
+      <canvas id="canvas" style="display: none"></canvas>
+      <img id="preview" src="" alt="Image Preview" />
+      <div id="result"></div> 
+      
+      <button id="sendButton" disabled>Send to API</button>
+
+    </div>
+    <script>
+      document
+        .getElementById("imageInput")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const img = new Image();
+            img.src = URL.createObjectURL(file);
+            img.onload = function () {
+              const canvas = document.getElementById("canvas");
+              const ctx = canvas.getContext("2d");
+
+              // Resize the image to a smaller size
+              const MAX_WIDTH = 640;
+              const MAX_HEIGHT = 480;
+              let width = img.width;
+              let height = img.height;
+
+              if (width > height) {
+                if (width > MAX_WIDTH) {
+                  height *= MAX_WIDTH / width;
+                  width = MAX_WIDTH;
+                }
+              } else {
+                if (height > MAX_HEIGHT) {
+                  width *= MAX_HEIGHT / height;
+                  height = MAX_HEIGHT;
+                }
+              }
+
+              canvas.width = width;
+              canvas.height = height;
+              ctx.drawImage(img, 0, 0, width, height);
+              document.getElementById("preview").src = canvas.toDataURL(
+                "image/jpeg",
+                0.7
+              ); // JPEG with 70% quality
+              document.getElementById("sendButton").disabled = false;
+            };
+          }
+        });
+
+      document
+        .getElementById("sendButton")
+        .addEventListener("click", function () {
+          const canvas = document.getElementById("canvas");
+          const imageData = canvas.toDataURL("image/jpeg", 0.7);
+
+          // Convert the data URL to a Blob
+          const byteString = atob(imageData.split(",")[1]);
+          const mimeString = imageData
+            .split(",")[0]
+            .split(":")[1]
+            .split(";")[0];
+          const ab = new ArrayBuffer(byteString.length);
+          const ia = new Uint8Array(ab);
+
+          for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+          }
+
+          const blob = new Blob([ab], { type: mimeString });
+
+          // Create FormData and append the Blob
+          const formData = new FormData();
+          formData.append("image", blob, "image.jpg");
+
+          fetch("/plate_recognition", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.plate_text) {
+                document.getElementById(
+                  "result"
+                ).innerText = `Plate Text: ${data.plate_text}`; // Display the plate text
+              } else {
+                document.getElementById(
+                  "result"
+                ).innerText = `Error: ${data.error}`; // Display error message
+              }
+            })
+            .catch((error) => {
+              document.getElementById(
+                "result"
+              ).innerText = `Error: ${data.error}`; // Display error message
+            });
+        });
+    </script>
+  </body>
+</html>
