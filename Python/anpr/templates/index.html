@@ -135,7 +135,7 @@
           const formData = new FormData();
           formData.append("image", blob, "image.jpg");
 
-          fetch("http://techsprint.lpu.in:3010/plate_recognition", {
+          fetch("/plate_recognition", {
             method: "POST",
             body: formData,
           })

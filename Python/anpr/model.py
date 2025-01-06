@@ -20,6 +20,8 @@ def upscale_image(image, scale_percent=200):
     dim = (width, height)
     return cv.resize(image, dim, interpolation=cv.INTER_CUBIC)
 
+import re
+
 def read_plate_number(results, frame):
     """
     Extract and read the license plate number from the detected bounding boxes.
@@ -43,7 +45,9 @@ def read_plate_number(results, frame):
 
             # OCR using PyTesseract
             text = pytesseract.image_to_string(upscaled, config='--psm 11')
-            return text.strip()  # Return the detected text
+            # Remove non-alphanumeric characters
+            cleaned_text = re.sub(r'[^A-Za-z0-9]', '', text.strip())
+            return cleaned_text  # Return the cleaned text
 
     return None  # No plate detected
 
