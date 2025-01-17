@@ -1,31 +1,28 @@
 #include <iostream>
 using namespace std;
 
+void reverse(vector<int>& arr, int start, int end) {
+    while (start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+
 int main()
 {
     int arr[] = {1, 2, 3, 4, 5}; // Original array
     int n = 5; 
     int k = 3;
 
-    // Reverse the first n-k elements
-    for (int i = 0; i < (n - k) / 2; i++) {
-        int temp = arr[i];
-        arr[i] = arr[n - k - i - 1];
-        arr[n - k - i - 1] = temp;
-    }
+    k = k % n;
     
-    // Reverse last k elements
-    for (int i = 0; i < k / 2; i++) {
-        int temp = arr[n - k + i];
-        arr[n - k + i] = arr[n - i - 1];
-        arr[n - i - 1] = temp;
-    }
-    
-    for (int i = 0; i < n / 2; i++) {
-        int temp = arr[i];
-        arr[i] = arr[n - i - 1];
-        arr[n - i - 1] = temp;
-    }
+    // Reverse the first part, the second part, and then the whole array
+    reverse(arr, 0, n - k - 1);
+    reverse(arr, n - k, n - 1);
+    reverse(arr, 0, n - 1);
     
     
     // Print the modified array
