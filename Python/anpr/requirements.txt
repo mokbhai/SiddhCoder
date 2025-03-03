@@ -1,6 +1,8 @@
 Flask
+flask-cors
 torch
 opencv-python
 easyocr
 ultralytics
 numpy
+pytesseract
